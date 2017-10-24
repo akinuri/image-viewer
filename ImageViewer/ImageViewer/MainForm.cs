@@ -47,11 +47,6 @@ namespace ImageViewer
             LoadImage(files[0]);
         }
 
-        private void BottomPanel_Click(object sender, EventArgs e)
-        {
-            ImageBox.Focus();
-        }
-
         private void ImageBox_Paint(object sender, PaintEventArgs e)
         {
             // disable interpolation (sharper pixels)
@@ -134,6 +129,20 @@ namespace ImageViewer
 
         #endregion
 
+        #region FOCUS EVENTS
+
+        private void BottomPanel_MouseEnter(object sender, EventArgs e)
+        {
+            ImageBox.Focus();
+        }
+
+        private void ImageBox_MouseEnter(object sender, EventArgs e)
+        {
+            ImageBox.Focus();
+        }
+
+        #endregion
+
         #region ZOOM EVENTS
 
         private void ZoomComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -190,6 +199,5 @@ namespace ImageViewer
         }
 
         #endregion
-
     }
 }

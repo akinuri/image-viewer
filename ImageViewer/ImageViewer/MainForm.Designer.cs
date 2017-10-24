@@ -243,9 +243,9 @@
             this.BottomPanel.Name = "BottomPanel";
             this.BottomPanel.Size = new System.Drawing.Size(624, 328);
             this.BottomPanel.TabIndex = 3;
-            this.BottomPanel.Click += new System.EventHandler(this.BottomPanel_Click);
             this.BottomPanel.DragDrop += new System.Windows.Forms.DragEventHandler(this.BottomPanel_DragDrop);
             this.BottomPanel.DragEnter += new System.Windows.Forms.DragEventHandler(this.BottomPanel_DragEnter);
+            this.BottomPanel.MouseEnter += new System.EventHandler(this.BottomPanel_MouseEnter);
             // 
             // WheelModeContextMenu
             // 
@@ -255,6 +255,7 @@
             this.ZoomModeItem,
             this.ScrollModeItem});
             this.WheelModeContextMenu.Name = "contextMenuStrip1";
+            this.WheelModeContextMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.WheelModeContextMenu.Size = new System.Drawing.Size(181, 98);
             this.WheelModeContextMenu.Text = "Mouse Wheel Mode";
             // 
@@ -298,6 +299,7 @@
             this.ImageBox.TabIndex = 1;
             this.ImageBox.TabStop = false;
             this.ImageBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageBox_Paint);
+            this.ImageBox.MouseEnter += new System.EventHandler(this.ImageBox_MouseEnter);
             // 
             // MainForm
             // 
