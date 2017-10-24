@@ -1,0 +1,17 @@
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe.config
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\bin\Debug\ImageViewer.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\obj\Debug\ImageViewer.Properties.Resources.resources
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\obj\Debug\ImageViewer.csproj.GenerateResource.Cache
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\obj\Debug\ImageViewer.exe
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\obj\Debug\ImageViewer.pdb
+c:\users\lenovo\documents\visual studio 2017\Projects\ImageViewer\ImageViewer\obj\Debug\ImageViewer.Form1.resources
+C:\Users\Lenovo\Documents\Visual Studio 2017\Projects\ImageViewer\ImageViewer\obj\Debug\ImageViewer.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe.config
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\bin\Debug\ImageViewer.pdb
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.csproj.GenerateResource.Cache
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.exe
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.pdb
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.MainForm.resources
