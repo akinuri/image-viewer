@@ -22,6 +22,7 @@ namespace ImageViewer
         public MainForm(string[] args)
         {
             InitializeComponent();
+            image = ImageBox.Image;
             this.ImageBox.MouseWheel += ImageBox_MouseWheel;
             if (args.Length > 0)
             {
@@ -33,7 +34,6 @@ namespace ImageViewer
         {
             ZoomComboBox.SelectedIndex = ZoomComboBox.FindStringExact("100%");
             this.ActiveControl = ImageBox;
-            image = ImageBox.Image;
         }
 
         private void BottomPanel_DragEnter(object sender, DragEventArgs e)
@@ -54,15 +54,12 @@ namespace ImageViewer
 
         private void ImageBox_Paint(object sender, PaintEventArgs e)
         {
-            if (image != null)
-            {
-                // disable interpolation (sharper pixels)
-                e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
-                // https://msdn.microsoft.com/en-us/library/ms142046(v=vs.110).aspx
-                e.Graphics.DrawImage(image,
-                    new Rectangle(0, 0, ImageBox.Width, ImageBox.Height),
-                    0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
-            }
+            // disable interpolation (sharper pixels)
+            e.Graphics.InterpolationMode = InterpolationMode.NearestNeighbor;
+            // https://msdn.microsoft.com/en-us/library/ms142046(v=vs.110).aspx
+            e.Graphics.DrawImage(image,
+                new Rectangle(0, 0, ImageBox.Width, ImageBox.Height),
+                0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
         }
 
         #region IMAGE FUNCTIONS
@@ -84,14 +81,11 @@ namespace ImageViewer
 
         private void ScaleImage()
         {
-            if (image != null)
-            {
-                ImageBox.Image = null;
-                ImageBox.Width = (int)(image.Width * zoom);
-                ImageBox.Height = (int)(image.Height * zoom);
-                ImageBox.Image = image;
-                CenterImage();
-            }
+            ImageBox.Image = null;
+            ImageBox.Width = (int)(image.Width * zoom);
+            ImageBox.Height = (int)(image.Height * zoom);
+            ImageBox.Image = image;
+            CenterImage();
         }
 
         private void ActualPixels()
