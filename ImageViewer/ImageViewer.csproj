@@ -109,5 +109,9 @@
   <ItemGroup>
     <None Include="Resources\no_image.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pannable.cur" />
+    <EmbeddedResource Include="Resources\panning.cur" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

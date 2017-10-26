@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.TopPanel = new System.Windows.Forms.Panel();
+            this.TopLabel = new System.Windows.Forms.Label();
             this.TopPanelSeperator = new System.Windows.Forms.Label();
             this.RotateCWButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
@@ -60,6 +61,7 @@
             this.TopPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TopPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.TopPanel.Controls.Add(this.TopLabel);
             this.TopPanel.Controls.Add(this.TopPanelSeperator);
             this.TopPanel.Controls.Add(this.RotateCWButton);
             this.TopPanel.Controls.Add(this.DeleteButton);
@@ -76,6 +78,16 @@
             this.TopPanel.Name = "TopPanel";
             this.TopPanel.Size = new System.Drawing.Size(624, 33);
             this.TopPanel.TabIndex = 0;
+            // 
+            // TopLabel
+            // 
+            this.TopLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TopLabel.AutoSize = true;
+            this.TopLabel.Location = new System.Drawing.Point(416, 10);
+            this.TopLabel.Name = "TopLabel";
+            this.TopLabel.Size = new System.Drawing.Size(38, 13);
+            this.TopLabel.TabIndex = 7;
+            this.TopLabel.Text = "label1";
             // 
             // TopPanelSeperator
             // 
@@ -277,12 +289,14 @@
             this.ZoomModeItem.Name = "ZoomModeItem";
             this.ZoomModeItem.Size = new System.Drawing.Size(180, 22);
             this.ZoomModeItem.Text = "Zoom";
+            this.ZoomModeItem.Click += new System.EventHandler(this.ZoomModeItem_Click);
             // 
             // ScrollModeItem
             // 
             this.ScrollModeItem.Name = "ScrollModeItem";
             this.ScrollModeItem.Size = new System.Drawing.Size(180, 22);
             this.ScrollModeItem.Text = "Scroll";
+            this.ScrollModeItem.Click += new System.EventHandler(this.ScrollModeItem_Click);
             // 
             // ImageBox
             // 
@@ -341,6 +355,7 @@
         private System.Windows.Forms.ToolStripMenuItem ScrollModeItem;
         private System.Windows.Forms.ToolStripSeparator WheelModeSeperator;
         private System.Windows.Forms.ToolStripMenuItem WheelModeItem;
+        private System.Windows.Forms.Label TopLabel;
     }
 }
 

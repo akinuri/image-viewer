@@ -9,16 +9,21 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Drawing2D;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace ImageViewer
 {
     public partial class MainForm : Form
     {
+        Image image = null;
+        
         float zoom = 1;
         float zoomMax = 32;
         float zoomMin = 0.1f;
         string zoomMode = null;
-        Image image = null;
+
+        string wheelMode = "Zoom";
+        int wheelStep = 50;
 
         public MainForm(string[] args)
         {
@@ -38,6 +43,9 @@ namespace ImageViewer
         {
             ZoomComboBox.SelectedIndex = ZoomComboBox.FindStringExact("100%");
             this.ActiveControl = ImageBox;
+            ImageBox.MouseDown += PanMouseDown;
+            BottomPanel.MouseDown += PanMouseDown;
+            BottomPanel.MouseUp += PanMouseUp;
         }
 
         private void MainForm_Resize(object sender, EventArgs e)
@@ -76,7 +84,6 @@ namespace ImageViewer
             //e.Graphics.DrawImage(image, new Rectangle(0, 0, ImageBox.Width, ImageBox.Height), 0, 0, image.Width, image.Height, GraphicsUnit.Pixel);
         }
 
-
         /* ==================== IMAGE FUNCTIONS ==================== */
 
         private void LoadImage(dynamic input)
@@ -106,6 +113,7 @@ namespace ImageViewer
             ImageBox.Height = (int)Math.Round((float)image.Height * zoom);
             ImageBox.Image = image;
             CenterImage();
+            CheckOverflow();
         }
 
         private void CenterImage()
@@ -127,6 +135,7 @@ namespace ImageViewer
                 ImageBox.Left = (BottomPanel.Width / 2) - (ImageBox.Width / 2);
                 ImageBox.Top = (BottomPanel.Height / 2) - (ImageBox.Height / 2);
             }
+            TopLabel.Text = ImageBox.Top.ToString();
         }
 
         private void ActualPixels()
@@ -176,12 +185,12 @@ namespace ImageViewer
             ImageBox.Focus();
         }
 
-
         #region FOCUS EVENTS
 
         private void BottomPanel_MouseEnter(object sender, EventArgs e)
         {
             ImageBox.Focus();
+            CheckOverflow();
         }
 
         private void ImageBox_MouseEnter(object sender, EventArgs e)
@@ -231,22 +240,91 @@ namespace ImageViewer
 
         private void ImageBox_MouseWheel(object sender, MouseEventArgs e)
         {
-            zoomMode = null;
-            if (e.Delta > 0)
+            if (wheelMode == "Zoom")
             {
-                zoom *= 1.1f;
-                if (zoom > zoomMax) { zoom /= 1.1f; }
+                zoomMode = null;
+
+                if (e.Delta > 0)
+                {
+                    zoom *= 1.1f;
+                    if (zoom > zoomMax)
+                        zoom /= 1.1f;
+                }
+                else
+                {
+                    zoom /= 1.1f;
+                    if (zoom < zoomMin)
+                        zoom *= 1.1f;
+                }
+                ScaleImage();
+                ZoomComboBox.ResetText();
+                ZoomComboBox.SelectedText = (zoom * 100).ToString("0.00") + "%";
             }
             else
             {
-                zoom /= 1.1f;
-                if (zoom < zoomMin) { zoom *= 1.1f; }
+                if (e.Delta > 0) // up
+                    
+                    if ((ImageBox.Top + wheelStep) < 0)
+                        ImageBox.Top += wheelStep;
+                    else
+                        ImageBox.Top = 0;
+                        
+                else // down
+                    
+                    if ((ImageBox.Top - wheelStep) > -(ImageBox.Height - BottomPanel.Height))
+                        ImageBox.Top -= wheelStep;
+                    else
+                        ImageBox.Top = -(ImageBox.Height - BottomPanel.Height);
+                        
+                TopLabel.Text = ImageBox.Top.ToString();
             }
-            ScaleImage();
-            ZoomComboBox.ResetText();
-            ZoomComboBox.SelectedText = (zoom * 100).ToString("0.00") + "%";
         }
 
         #endregion
+
+        private void ZoomModeItem_Click(object sender, EventArgs e)
+        {
+            wheelMode = "Zoom";
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            item.Checked = true;
+            ScrollModeItem.Checked = false;
+        }
+
+        private void ScrollModeItem_Click(object sender, EventArgs e)
+        {
+            wheelMode = "Scroll";
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            item.Checked = true;
+            ZoomModeItem.Checked = false;
+        }
+
+
+        private void CheckOverflow()
+        {
+            if (ImageBox.Width > BottomPanel.Width || ImageBox.Height > BottomPanel.Height)
+            {
+                BottomPanel.Cursor = Cursors.Hand; // set a custom cursor "pannable"
+
+                //Cursor Pannable = new Cursor(GetType(), "pannable.cur");
+                //BottomPanel.Cursor = Pannable;
+            }
+            else if (BottomPanel.Cursor != Cursors.Default)
+            {
+                BottomPanel.Cursor = Cursors.Default;
+            }
+        }
+        
+        private void PanMouseDown(object sender, MouseEventArgs e)
+        {
+            if (BottomPanel.Cursor == Cursors.Hand)
+            {
+                BottomPanel.Cursor = Cursors.Cross; // set a custom cursor "panning"
+            }
+        }
+
+        private void PanMouseUp(object sender, MouseEventArgs e)
+        {
+            CheckOverflow();
+        }
     }
 }

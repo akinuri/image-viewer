@@ -10,8 +10,8 @@ C:\Users\Lenovo\Documents\Visual Studio 2017\Projects\ImageViewer\ImageViewer\ob
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe.config
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\bin\Debug\ImageViewer.exe
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\bin\Debug\ImageViewer.pdb
+C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.MainForm.resources
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.Properties.Resources.resources
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.csproj.GenerateResource.Cache
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.exe
 C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.pdb
-C:\Users\Lenovo\Desktop\JS\ImageViewer\ImageViewer\obj\Debug\ImageViewer.MainForm.resources
