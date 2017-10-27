@@ -50,6 +50,7 @@
             this.ScrollModeItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ImageBox = new System.Windows.Forms.PictureBox();
             this.ControlToolTips = new System.Windows.Forms.ToolTip(this.components);
+            this.LeftLabel = new System.Windows.Forms.Label();
             this.TopPanel.SuspendLayout();
             this.BottomPanel.SuspendLayout();
             this.WheelModeContextMenu.SuspendLayout();
@@ -61,6 +62,7 @@
             this.TopPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TopPanel.BackColor = System.Drawing.SystemColors.Control;
+            this.TopPanel.Controls.Add(this.LeftLabel);
             this.TopPanel.Controls.Add(this.TopLabel);
             this.TopPanel.Controls.Add(this.TopPanelSeperator);
             this.TopPanel.Controls.Add(this.RotateCWButton);
@@ -83,7 +85,7 @@
             // 
             this.TopLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TopLabel.AutoSize = true;
-            this.TopLabel.Location = new System.Drawing.Point(416, 10);
+            this.TopLabel.Location = new System.Drawing.Point(444, 10);
             this.TopLabel.Name = "TopLabel";
             this.TopLabel.Size = new System.Drawing.Size(38, 13);
             this.TopLabel.TabIndex = 7;
@@ -312,6 +314,15 @@
             this.ImageBox.Paint += new System.Windows.Forms.PaintEventHandler(this.ImageBox_Paint);
             this.ImageBox.MouseEnter += new System.EventHandler(this.ImageBox_MouseEnter);
             // 
+            // LeftLabel
+            // 
+            this.LeftLabel.AutoSize = true;
+            this.LeftLabel.Location = new System.Drawing.Point(380, 10);
+            this.LeftLabel.Name = "LeftLabel";
+            this.LeftLabel.Size = new System.Drawing.Size(38, 13);
+            this.LeftLabel.TabIndex = 8;
+            this.LeftLabel.Text = "label1";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,6 +334,7 @@
             this.MinimumSize = new System.Drawing.Size(640, 400);
             this.Name = "MainForm";
             this.Text = "Image Viewer";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.TopPanel.ResumeLayout(false);
             this.TopPanel.PerformLayout();
@@ -356,6 +368,7 @@
         private System.Windows.Forms.ToolStripSeparator WheelModeSeperator;
         private System.Windows.Forms.ToolStripMenuItem WheelModeItem;
         private System.Windows.Forms.Label TopLabel;
+        private System.Windows.Forms.Label LeftLabel;
     }
 }
 
